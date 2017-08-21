@@ -12,7 +12,6 @@ def walsh_transform(x):
     if(n == 1):
         return x
     else:
-        # Radix-2
         x0 = walsh_transform( [(a+b) for a, b in zip(x, x[n/2:])] )
         x1 = walsh_transform( [(a-b) for a, b,in zip(x, x[n/2:])] )
         return flatten(zip(x0, x1))
@@ -38,7 +37,7 @@ if __name__ == '__main__':
 
         # write
         scipy.io.wavfile.write(
-                'wav/walsh_%04d_%d.wav' % (n,resolution),
-                samplerate,
-                write_frames.astype(np.int16))
+            'wav/walsh_%04d_%d.wav' % (n,resolution),
+            samplerate,
+            write_frames.astype(np.int16))
 
