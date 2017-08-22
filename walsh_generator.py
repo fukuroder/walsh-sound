@@ -29,15 +29,14 @@ if __name__ == '__main__':
         g = n ^ (n>>1)
 
         # walsh spectrum
-        sequency = np.zeros((resolution,))
-        sequency[g] = 1
+        spectrum = np.zeros((resolution,))
+        spectrum[g] = 1
 
         # inverse transform
-        write_frames = np.array( walsh_transform(sequency) )*gain
+        write_frames = np.array( walsh_transform(spectrum) )*gain
 
         # write
         scipy.io.wavfile.write(
             'wav/walsh_%04d_%d.wav' % (n,resolution),
             samplerate,
             write_frames.astype(np.int16))
-
