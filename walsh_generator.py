@@ -22,7 +22,7 @@ if __name__ == '__main__':
     samplerate = 44100
     gain = (2**14)
 
-    os.mkdir("wav")
+    os.mkdir('wav')
 
     for n in xrange(max_n):
         # translate to gray code
